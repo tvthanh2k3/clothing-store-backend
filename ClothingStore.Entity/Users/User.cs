@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ClothingStore.Entity.Carts;
+using ClothingStore.Entity.Orders;
+using Microsoft.AspNetCore.Identity;
 
 namespace ClothingStore.Entity.Users
 {
@@ -16,5 +18,8 @@ namespace ClothingStore.Entity.Users
 
 		// Sort delete
 		public bool IsDeleted { get; set; }
+
+		public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+		public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 	}
 }
