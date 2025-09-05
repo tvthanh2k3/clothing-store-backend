@@ -1,6 +1,7 @@
 using ClothingStore.Database.Contexts;
 using ClothingStore.Entity.Roles;
 using ClothingStore.Entity.Users;
+using ClothingStore.WebAPI.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -59,5 +60,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+await SeedData.Seed(app.Services);
 
 app.Run();
